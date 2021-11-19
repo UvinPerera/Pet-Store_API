@@ -2,11 +2,6 @@ package org.acme;
 
 import org.acme.models.PetType;
 import org.acme.repository.PetTypeRepository;
-import org.jboss.resteasy.annotations.Body;
-
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.util.ArrayList;
@@ -14,8 +9,6 @@ import java.util.List;
 
 @Path("/pet-type")
 public class PetTypeResource {
-
-  private List<PetType> petTypes = new ArrayList();
   private final PetTypeRepository pettypeRepository;
 
   public PetTypeResource(PetTypeRepository pettypeRepository) {
