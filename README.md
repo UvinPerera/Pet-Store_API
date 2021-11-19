@@ -27,3 +27,5 @@ Click any of the four files for deploying instructions.
 
 **_Location:_** /postman
 
+#### Further information can be found on the README file inside pet-store directory
+
