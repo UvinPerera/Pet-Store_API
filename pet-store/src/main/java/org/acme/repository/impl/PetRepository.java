@@ -17,31 +17,34 @@ public class PetRepository implements org.acme.repository.PetRepository {
     @Override
     @Transactional
     public List<Pet> getAllPets() {
-        List<Pet> result = em.createQuery("Select pt from PetType pt",Pet.class).getResultList();
+        List<Pet> result = em.createQuery("Select pt from Pet pt",Pet.class).getResultList();
         return result;
     }
 
     @Override
     @Transactional
-    public List<Pet> getPetByColumnAndValue(String type) {
-        return null;
+    public List<Pet> getPetByColumnAndValue(String column, String value) {
+        List<Pet> result = em.createQuery("Select pt from Pet pt where pt."+column+"="+value,Pet.class).getResultList();
+        return result;
     }
 
     @Override
     @Transactional
-    public void addPetType(Pet pet) {
+    public void addPet(Pet pet) {
+        em.persist(pet);
 
     }
 
     @Override
     @Transactional
-    public void updatePetType(Pet pet) {
-
+    public void updatePet(Pet pet) {
+        em.merge(pet);
     }
 
     @Override
     @Transactional
-    public void deletePetType(Long id) {
-
+    public void deletePet(Long id) {
+        Pet pet = em.find(Pet.class,id);
+        em.remove(pet);
     }
 }

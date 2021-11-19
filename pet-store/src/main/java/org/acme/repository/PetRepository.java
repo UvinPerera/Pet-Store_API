@@ -6,11 +6,11 @@ import java.util.List;
 public interface PetRepository {
     public List<Pet> getAllPets();
 
-    public List<Pet> getPetByColumnAndValue(String type);
+    public List<Pet> getPetByColumnAndValue(String column, String value);
 
-    public void addPetType(Pet pet);
+    public void addPet(Pet pet);
 
-    public void updatePetType(Pet pet);
+    public void updatePet(Pet pet);
 
-    public void deletePetType(Long id);
+    public void deletePet(Long id);
 }
