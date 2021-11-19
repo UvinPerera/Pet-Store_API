@@ -4,8 +4,7 @@ import org.acme.models.PetType;
 import org.acme.repository.PetTypeRepository;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Path("/pet-type")
 public class PetTypeResource {
@@ -14,6 +13,7 @@ public class PetTypeResource {
   public PetTypeResource(PetTypeRepository pettypeRepository) {
     this.pettypeRepository = pettypeRepository;
   }
+
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -39,7 +39,7 @@ public class PetTypeResource {
     public Response update(PetType petType){
       try{
         pettypeRepository.updatePetType(petType);
-        return Response.status(204).build();
+        return Response.status(200).build();
       }
       catch (Exception e){
         return Response.status(500).build();
@@ -47,11 +47,14 @@ public class PetTypeResource {
       }
     }
 
+    /**
+     * @param id The Id of the Pet type
+     * */
     @DELETE
     public Response delete(@QueryParam("id") Long id){
       try{
         pettypeRepository.deletePetType(id);
-        return Response.status(204).build();
+        return Response.status(200).build();
       }
       catch (Exception e){
         return Response.status(500).build();

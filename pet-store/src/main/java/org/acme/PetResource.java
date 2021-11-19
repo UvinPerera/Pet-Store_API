@@ -46,7 +46,7 @@ public class PetResource {
     public Response put(Pet pet){
         try{
             petRepository.updatePet(pet);
-            return Response.status(204).build();
+            return Response.status(200).build();
 
         }
         catch(Exception e){
@@ -58,7 +58,7 @@ public class PetResource {
     public Response delete(@QueryParam("id") Long id){
         try{
             petRepository.deletePet(id);
-            return Response.status(204).build();
+            return Response.status(200).build();
 
         }
         catch(Exception e){
