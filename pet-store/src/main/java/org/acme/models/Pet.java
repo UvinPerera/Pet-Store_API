@@ -1,13 +1,11 @@
 package org.acme.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Pet {
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false)
     private Long id;
 

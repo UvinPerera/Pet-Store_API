@@ -9,8 +9,14 @@ import java.util.List;
 
 public interface PetTypeRepository{
 
-    @Transactional
+
     public List<PetType> getAllPetTypes();
-    @Transactional
+
     public List<PetType> getPetType(String type);
+
+    public void addPetType(PetType petType);
+
+    public void updatePetType(PetType petType);
+
+    public void deletePetType(Long id);
 }
